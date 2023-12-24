@@ -1,4 +1,12 @@
 package com.gridnine.testing;
+import com.gridnine.testing.builder.FlightBuilder;
+import com.gridnine.testing.filter.ArrivalBeforeDepartureFilter;
+import com.gridnine.testing.filter.DepartureBeforeNowFilter;
+import com.gridnine.testing.filter.EarthTimeOverTwoHoursFilter;
+import com.gridnine.testing.filter.FilterInterface;
+import com.gridnine.testing.model.Flight;
+import com.gridnine.testing.model.Segment;
+
 import java.util.List;
 
 public class Main {
@@ -27,8 +35,8 @@ public class Main {
      * @param flights
      */
     private static void printFlights(List<Flight> flights) {
-        for (int i = 1; i < flights.size(); i++) {
-            System.out.println("Перелет: " + i);
+        for (int i = 0; i < flights.size(); i++) {
+            System.out.println("Перелет: " + (i + 1));
             for (Segment segment : flights.get(i).getSegments()) {
                 System.out.println(segment.getDepartureDate() + "---" + segment.getArrivalDate() + "\n");
             }
